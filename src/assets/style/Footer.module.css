@@ -1,0 +1,18 @@
+.footer_bacground {
+    background-color: #D3E2F2;
+    border-radius: 0 0 30px 30px;
+    padding: 5px;
+}
+
+.footer_bacground {
+    text-align: center;
+    font-size: 16px;
+    line-height: 18.67px;
+    font-weight: 500;
+    color: #5982AB;
+    overflow: hidden;
+}
+
+.mail {
+    color: #406385;
+}

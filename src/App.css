@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap');
 
+/* Remove this */
+* {
+  border: 1px solid red;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,10 +13,26 @@ body {
   scroll-behavior: smooth;
   font-family: "Baloo Bhaijaan 2", sans-serif;
   font-optical-sizing: auto;
-  color: #474747;
-  background-color: #EAF4F4;
+  background-color: #E2EDF8;
+  direction: rtl;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.main_container {
+  margin: 35px;
+  background-color: #E2EDF8;
+}
+
+.side_container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
 }
