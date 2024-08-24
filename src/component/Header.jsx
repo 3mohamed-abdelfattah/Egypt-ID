@@ -1,11 +1,12 @@
 import { AiOutlineSearch } from "react-icons/ai";
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import style from '../assets/style/Header.module.css'
 import Logo from '../assets/img/logo.svg'
 import Curly from '../assets/img/curl-shape-l.svg'
 import Gender from '../assets/img/gender.svg'
 import Location from '../assets/img/location.svg'
 import Birth from '../assets/img/birth.svg'
+import DefaultContent from "./DefaultContent";
 
 export default function Header() {
     const [id, setID] = useState('')
@@ -13,6 +14,7 @@ export default function Header() {
     const [city, setCity] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [error, setError] = useState('')
+    const [searchClicked, setSearchClicked] = useState(false);
 
     const governorates = {
         "01": "القاهرة",
@@ -105,6 +107,7 @@ export default function Header() {
         const date = id.substring(1, 7)
         const month = months[id.substring(3, 5)]
         setBirthDate(id[0] === '3' ? `${date.substring(4, 6)} ${month} 20${date.substring(0, 2)}` : `${date.substring(4, 6)} ${month} 19${date.substring(0, 2)}`)
+        setSearchClicked(true);
     };
 
     return (
@@ -137,35 +140,41 @@ export default function Header() {
                 </div>
                 {error && <p className={style.errorText}>{error}</p>}
                 {/*User Info Containers*/}
-                <div className={style.detail_container}>
-                    <div className={style.info_box}>
-                        <p>قدرنا نعرف <br />الأتي</p>
-                    </div>
-                    <div className={style.gender_box}>
-                        <div className={style.box_head}>
-                            <img src={Gender} alt="icon" className={style.box_icon} />
-                            <span className={style.box_text}>النوع</span>
+                {searchClicked && (
+                    <div className={style.detail_container}>
+                        <div className={style.info_box}>
+                            <p>قدرنا نعرف <br />الأتي</p>
                         </div>
-                        <hr className={style.break_line} />
-                        <p className={style.inline_info}>{gender ? gender : "null"}</p>
-                    </div>
-                    <div className={style.location_box}>
-                        <div className={style.box_head}>
-                            <img src={Location} alt="icon" className={style.box_icon} />
-                            <span className={style.box_text}>محل الإقامة</span>
+                        <div className={style.gender_box}>
+                            <div className={style.box_head}>
+                                <img src={Gender} alt="icon" className={style.box_icon} />
+                                <span className={style.box_text}>النوع</span>
+                            </div>
+                            <hr className={style.break_line} />
+                            <p className={style.inline_info}>{gender ? gender : "null"}</p>
                         </div>
-                        <hr className={style.break_line} />
-                        <p className={style.inline_info}>{city ? city : "null"}</p>
-                    </div>
-                    <div className={style.birth_box}>
-                        <div className={style.box_head}>
-                            <img src={Birth} alt="icon" className={style.box_icon} />
-                            <span className={style.box_text}>تاريخ الميلاد</span>
+                        <div className={style.location_box}>
+                            <div className={style.box_head}>
+                                <img src={Location} alt="icon" className={style.box_icon} />
+                                <span className={style.box_text}>محل الإقامة</span>
+                            </div>
+                            <hr className={style.break_line} />
+                            <p className={style.inline_info}>{city ? city : "null"}</p>
                         </div>
-                        <hr className={style.break_line} />
-                        <p className={style.inline_info}>{birthDate ? birthDate : "null"}</p>
+                        <div className={style.birth_box}>
+                            <div className={style.box_head}>
+                                <img src={Birth} alt="icon" className={style.box_icon} />
+                                <span className={style.box_text}>تاريخ الميلاد</span>
+                            </div>
+                            <hr className={style.break_line} />
+                            <p className={style.inline_info}>{birthDate ? birthDate : "null"}</p>
+                        </div>
                     </div>
-                </div>
+                )}
+                {/*Default Section*/}
+                {!searchClicked && (
+                    <DefaultContent />
+                )}
             </div>
         </Fragment>
     )
