@@ -4,14 +4,15 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    height: 70vh;
 }
 
+/* Head Text */
 .head_text {
     color: #5982AB;
     font-weight: 700;
     font-size: 40px;
     line-height: 48.08px;
+    z-index: 1;
 }
 
 .sub_text {
@@ -21,6 +22,7 @@
     line-height: 21.47px;
 }
 
+/* Search Bar */
 .searchBar {
     display: flex;
     align-items: center;
@@ -62,6 +64,116 @@
     margin-right: 10px;
 }
 
+/* Background Curl Shape */
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.curl_right {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 150px;
+    height: auto;
+    transform: scaleX(-1);
+}
+
+.curl_left {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 150px;
+    height: auto;
+    transform: scaleX(1);
+}
+
+/* User Info Containers */
+.detail_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 70px;
+}
+
+.info_box {
+    width: 247px;
+    height: 202px;
+    border-radius: 20px;
+    margin: 15px;
+    background-image: linear-gradient(to left, #3266E3, #54B5A6);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36.63px;
+    color: white;
+    align-content: center;
+}
+
+.gender_box {
+    width: 247px;
+    height: 202px;
+    border-radius: 20px;
+    margin: 15px;
+    background-color: #F4F4F4;
+
+}
+
+.location_box {
+    width: 247px;
+    height: 202px;
+    border-radius: 20px;
+    margin: 15px;
+    background-color: #F4F4F4;
+
+}
+
+.birth_box {
+    width: 247px;
+    height: 202px;
+    border-radius: 20px;
+    margin: 15px;
+    background-color: #F4F4F4;
+
+}
+
+.box_head {
+    align-items: center;
+    display: flex;
+    margin: 15px;
+}
+
+.box_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: #82B8A1;
+    padding: 10px;
+    border-radius: 48px;
+}
+
+.box_text {
+    color: #797979;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.98px;
+    margin-right: 10px;
+}
+
+.break_line {
+    width: 212px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.13);
+    border: none;
+    border-radius: 2px;
+}
+
+.inline_info {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36.63px;
+    color: #494949;
+}
 
 
 @media (max-width: 500px) {
