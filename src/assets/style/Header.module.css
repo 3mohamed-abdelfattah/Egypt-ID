@@ -196,7 +196,7 @@
     }
 
     .searchBar_button {
-        max-width: 15%;
+        max-width: 60px;
         margin-right: 0;
         padding: 0 40px;
         padding-right: 10px;
