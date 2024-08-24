@@ -95,6 +95,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 70px;
+    justify-content: center;
 }
 
 .info_box {
@@ -175,6 +176,13 @@
     color: #494949;
 }
 
+/* Error Message */
+.errorText {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 36.63px;
+    color: #C7253E;
+}
 
 @media (max-width: 500px) {
     .searchBar {
