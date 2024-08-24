@@ -101,25 +101,10 @@ export default function Header() {
         } else {
             setCity(governorates[governorateCode])
         }
-        // Get Birthday date
-        const day = id.substring(5, 7);
-        const month = id.substring(3, 5);
-        const yearPrefix = id[0] === '3' ? '20' : '19';
-        const year = yearPrefix + id.substring(1, 3);
-        const monthName = months[month];
-
-        if (monthName) {
-            const birthday = `${day} ${monthName} ${year}`;
-            setBirthDate(birthday);
-            console.log(birthday);
-        } else {
-            setError('الشهر غير صحيح');
-            console.log(e);
-        }
-        console.log(date);
-        console.log(month);
-        console.log('الرقم القومي:', id);
-        console.log(governorates[governorateCode]);
+        //Get Birthday date
+        const date = id.substring(1, 7)
+        const month = months[id.substring(3, 5)]
+        setBirthDate(id[0] === '3' ? `${date.substring(4, 6)} ${month} 20${date.substring(0, 2)}` : `${date.substring(4, 6)} ${month} 19${date.substring(0, 2)}`)
     };
 
     return (
@@ -162,7 +147,7 @@ export default function Header() {
                             <span className={style.box_text}>النوع</span>
                         </div>
                         <hr className={style.break_line} />
-                        {gender && <p className={style.inline_info}>{gender}</p>}
+                        <p className={style.inline_info}>{gender ? gender : "null"}</p>
                     </div>
                     <div className={style.location_box}>
                         <div className={style.box_head}>
@@ -170,7 +155,7 @@ export default function Header() {
                             <span className={style.box_text}>محل الإقامة</span>
                         </div>
                         <hr className={style.break_line} />
-                        {city && <p className={style.inline_info}>{city}</p>}
+                        <p className={style.inline_info}>{city ? city : "null"}</p>
                     </div>
                     <div className={style.birth_box}>
                         <div className={style.box_head}>
@@ -178,7 +163,7 @@ export default function Header() {
                             <span className={style.box_text}>تاريخ الميلاد</span>
                         </div>
                         <hr className={style.break_line} />
-                        {birthDate && <p className={style.inline_info}>{birthDate}</p>}
+                        <p className={style.inline_info}>{birthDate ? birthDate : "null"}</p>
                     </div>
                 </div>
             </div>
